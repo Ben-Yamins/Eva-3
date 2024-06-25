@@ -232,7 +232,7 @@
                 </p>
                 <p class="text-center text-light mt-3">
                     # EVA3<br>
-                    Landing-page Eva2<br>
+                    Landing-page SPA Eva3<br>
                     Benjamín Alejandro Alarcón Riquelme<br>
                     Rut: 20.844.549-9<br>
                     Sección: TI2031/D-IEI-N3-P1-C1/D La Granja IEI<br>
@@ -255,18 +255,18 @@
 <script>
 
   let isAuthenticated = false;
-  //funcion por declaración
+  //funcion por declaración para manejar la navegación entre secciones
   function navigate(event, sectionId) {
     // Prevenir el comportamiento por defecto del enlace
     event.preventDefault();
 
-    // Ocultar todos los divs
+    // Ocultar todos los divs con la clase content
     const sections = document.querySelectorAll('.content');
     sections.forEach(section => {
         section.style.display = 'none';
     });
 
-    // Mostrar el div seleccionado
+    // Mostrar el div seleccionado con su id correspondiente
     const selectedSection = document.getElementById(sectionId);
     if (selectedSection) {
         selectedSection.style.display = 'block';
@@ -276,64 +276,72 @@
     window.history.pushState(null, '', `#${sectionId}`);
 }
 
-// Mostrar la sección inicial (home) al cargar la página
+// Mostrar la sección inicial (home) al cargar la página (DOM)
+// Función anónima tipo flecha
 document.addEventListener('DOMContentLoaded', () => {
     const currentHash = window.location.hash.substring(1) || 'login';
     showSection(currentHash);
 });
 
+// Evento que se activa al cambiar el historial del navegador (navegación hacia atrás/adelante)
 window.addEventListener('popstate', () => {
     const currentHash = window.location.hash.substring(1) || 'login';
     showSection(currentHash);
 });
 
+//función por declaración para mostrar la sección correspondiente y verificar login
 function showSection(sectionId) {
     // Verificar autenticación antes de mostrar la sección
     if (!isAuthenticated && sectionId !== 'login') {
         alert('Debes iniciar sesión para acceder a esta sección.');
-        sectionId = 'login';
+        sectionId = 'login'; // Redirigir al usuario a la página de inicio de sesión si no está autenticado
     }
 
-    // Ocultar todos los divs
+    // Ocultar todos los divs con la clase .content
     const sections = document.querySelectorAll('.content');
     sections.forEach(section => {
         section.style.display = 'none';
     });
 
-    // Mostrar el div seleccionado
+    // Mostrar el div seleccionado con el id que corresponda
     const selectedSection = document.getElementById(sectionId);
     if (selectedSection) {
         selectedSection.style.display = 'block';
     }
 }
 
+//función por declaración para el inicio de sesión
 function login(event) {
     event.preventDefault();
     const username = document.getElementById('inputUsername').value;
     const password = document.getElementById('inputPassword').value;
 
+    //verificar usuario y contraseña validos(Demo)
     if (username === 'admin' && password === 'admin') {
         isAuthenticated = true;
-        document.getElementById('navbar').style.display = 'block';
-        navigate(event, 'home');
+        document.getElementById('navbar').style.display = 'block'; //muestra la navbar
+        navigate(event, 'home'); //nos lleva al Home
     } else {
         alert('Usuario o contraseña incorrectos');
     }
 }
-
+// función por declaración cerrar sesión
 function logout(event) {
     event.preventDefault();
+    // autenticación falsa, oculta el navbar y nos lleva al login
     isAuthenticated = false;
     document.getElementById('navbar').style.display = 'none';
     navigate(event, 'login');
 }
 
 //script form cuento
+//función anónima y uso de JQuery
 $(document).ready(function() {
       $('#formulario').submit(function(event) {
         event.preventDefault();
 
         // Obtener datos del formulario
+        // Libreria
         var datosFormulario = {
           nombre: $('#nombre').val(),
           edad: $('#edad').val(),
