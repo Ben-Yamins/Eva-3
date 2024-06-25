@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Super Tarro</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    
+</head>
+<body>
+    <!-- NavBar -->
+    <nav id="navbar" class="navbar navbar-expand-sm bg-dark" style="display: none;">
+      <div class="container-fluid">
+        <a class="navbar-brand text-light" href="https://portales.inacap.cl/">InacapNoticias</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active text-light" aria-current="page" href="#home" onclick="navigate(event, 'home')">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#somos" onclick="navigate(event, 'somos')">Quienes somos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#contacto" onclick="navigate(event, 'contacto')">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#otro" onclick="navigate(event, 'otro')">Carrusel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#cuentos" onclick="navigate(event, 'cuentos')">Tus cuentos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" style="cursor: pointer" onclick="logout(event)">Cerrar Sesión</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+
+    <!-- Formulario de Login -->
+    <div id="login" class="container-fluid my-5 content">
+      <div class="row mx-3">
+          <div class="col">
+              <form onsubmit="login(event)">
+                  <div class="mb-3">
+                      <label for="inputUsername" class="form-label">Usuario</label>
+                      <input type="text" class="form-control" id="inputUsername" required>
+                  </div>
+                  <div class="mb-3">
+                      <label for="inputPassword" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" id="inputPassword" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+              </form>
+          </div>
+      </div>
+  </div>
+
+    <!-- Noticias -->
+    
+    <div id="home" class="container content">
+        <div class="row">
+            <div class="col py-5">
+                <div class="card shadow-lg" style="width: 18rem;">
+                    <img src="img/Img01.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Team Abesado Arrasa</h5>
+                      <p class="card-text">Equipo abesado de Inacap se inmacula y declara campeón de Shile.</p>
+                      <a href="https://portales.inacap.cl/noticias/noticias-inacap/" class="btn btn-primary">Ver Más</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col py-5">
+                <div class="card shadow-lg" style="width: 18rem;">
+                    <img src="img/Img02.jpg" class="card-img-top img-fluid" alt="Marlon Breeze">
+                    <div class="card-body">
+                      <h5 class="card-title">La Salsa Xico</h5>
+                      <p class="card-text">Conoce al padre del trap en chile: Marlon Breeze la verdadera salsa xico, que corra el ñaxi.</p>
+                      <a href="https://open.spotify.com/playlist/1QYRx1qBX2nx3wJaK49yKr?si=76bd8dcf426a474a" class="btn btn-success">Ir a la Playlist</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col py-5">
+                <div class="card shadow-lg" style="width: 18rem;">
+                    <img src="img/Img03.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Semana del Emprendimiento en Sede Antofagasta,
+                         resalta al espíritu empresarial de la zona</h5>
+                      <p class="card-text">El evento consideró charlas a cargo de emprendedores;
+                         Seminario de Inteligencia Artificial organizado por el Área Administración,
+                          en tres jornadas, y la Feria de Emprendimiento 2024, que por primera vez se
+                           realizó como parte de esta celebración a nivel nacional, se emplazó en el
+                            patio principal de la Sede contando con la participación de 20 emprendedores
+                             entre alumnos y exalumnos de INACAP, junto con destacados emprendimientos locales.</p>
+                      <a href="https://portales.inacap.cl/noticias/noticias-inacap/" class="btn btn-primary">Ver Más</a>
+                    </div>
+                  </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Quienes somos-->
+    <div id="somos" class="container content">
+      <div class="jumbotron mt-5">
+          <h1 class="display-4">Somos un periódico dinámico</h1>
+          <p class="lead">Tratando de salir de lo típico que viene a ser un noticiero común y otorgar el espacio a la gente que queremos y que nos quiere para que puedan compartir sus pequeñas noticias o historias.</p>
+          <hr class="my-4">
+          <p>Seguimos en desarrollo, gracias por su apoyo.</p>
+      </div>
+  </div>
+    
+    <!--Formulario de cuentos-->
+    <div id="cuentos" class="container content mt-5">
+      <h2>Envíanos tu cuento</h2>
+      <form id="formulario">
+        <div class="form-group">
+          <label for="nombre">Nombre de autor:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="edad">Edad:</label>
+          <input type="number" class="form-control" id="edad" name="edad" required>
+        </div>
+        <div class="form-group">
+          <label for="pais">País de habla hispana:</label>
+          <select class="form-control" id="pais" name="pais" required>
+            <option value="Argentina">Argentina</option>
+            <option value="Chile">Chile</option>
+            <option value="España">España</option>
+            <option value="México">México</option>
+            <option value="Perú">Perú</option>            
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="texto">Texto (menos de 100 palabras):</label>
+          <textarea class="form-control" id="texto" name="texto" rows="3" maxlength="100" required></textarea>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="consentimiento" name="consentimiento" required>
+          <label class="form-check-label" for="consentimiento">Consiento el uso de mis datos</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+      </form>
+  
+  
+      <h2>Tabla de Datos</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Nombre</th>
+              <th>Edad</th>
+              <th>País</th>
+              <th>Email</th>
+              <th>Texto</th>
+              <th>Fecha de Envío</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaDatos">
+            <!-- Aquí se añadirán las filas con datos guardados -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Formulario simple-->
+    <div id="contacto" class="container-fluid my-5 content">
+        <div class="row mx-3">
+            <div class="col">
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Dirección de email</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text">Nunca compartiremos tus datos con nadie.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Chekeame</label>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Enviar</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Carrusel -->
+    <div id="otro" class="content carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/Car01.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/Car02.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/Car03.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#otro" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#otro" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    
+    <!-- Footer-->
+    <div class="container-fluid bg-dark">
+        <div class="row">
+            <div class="col">
+                <p class="text-center text-light mt-3">
+                    Este es mi footer uwu
+                </p>
+                <p class="text-center text-light mt-3">
+                    # EVA3<br>
+                    Landing-page Eva2<br>
+                    Benjamín Alejandro Alarcón Riquelme<br>
+                    Rut: 20.844.549-9<br>
+                    Sección: TI2031/D-IEI-N3-P1-C1/D La Granja IEI<br>
+                    benjamin.alarcon14@gmail.cl<br>
+                    +56998780388
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<script>
+
+  let isAuthenticated = false;
+  //funcion por declaración
+  function navigate(event, sectionId) {
+    // Prevenir el comportamiento por defecto del enlace
+    event.preventDefault();
+
+    // Ocultar todos los divs
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Mostrar el div seleccionado
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+    }
+
+    // Actualizar la URL sin recargar la página
+    window.history.pushState(null, '', `#${sectionId}`);
+}
+
+// Mostrar la sección inicial (home) al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    const currentHash = window.location.hash.substring(1) || 'login';
+    showSection(currentHash);
+});
+
+window.addEventListener('popstate', () => {
+    const currentHash = window.location.hash.substring(1) || 'login';
+    showSection(currentHash);
+});
+
+function showSection(sectionId) {
+    // Verificar autenticación antes de mostrar la sección
+    if (!isAuthenticated && sectionId !== 'login') {
+        alert('Debes iniciar sesión para acceder a esta sección.');
+        sectionId = 'login';
+    }
+
+    // Ocultar todos los divs
+    const sections = document.querySelectorAll('.content');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Mostrar el div seleccionado
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+    }
+}
+
+function login(event) {
+    event.preventDefault();
+    const username = document.getElementById('inputUsername').value;
+    const password = document.getElementById('inputPassword').value;
+
+    if (username === 'admin' && password === 'admin') {
+        isAuthenticated = true;
+        document.getElementById('navbar').style.display = 'block';
+        navigate(event, 'home');
+    } else {
+        alert('Usuario o contraseña incorrectos');
+    }
+}
+
+function logout(event) {
+    event.preventDefault();
+    isAuthenticated = false;
+    document.getElementById('navbar').style.display = 'none';
+    navigate(event, 'login');
+}
+
+//script form cuento
+$(document).ready(function() {
+      $('#formulario').submit(function(event) {
+        event.preventDefault();
+
+        // Obtener datos del formulario
+        var datosFormulario = {
+          nombre: $('#nombre').val(),
+          edad: $('#edad').val(),
+          pais: $('#pais').val(),
+          email: $('#email').val(),
+          texto: $('#texto').val(),
+          consentimiento: $('#consentimiento').is(':checked'),
+          fechaEnvio: new Date().toLocaleString()
+        };
+
+        // Convertir a JSON
+        var datosJSON = JSON.stringify(datosFormulario);
+
+        // Mostrar en consola (opcional)
+        console.log(datosJSON);
+
+        // Mostrar en tabla
+        var tabla = $('#tablaDatos');
+        var fila = '<tr><td>' + datosFormulario.nombre + '</td><td>' + datosFormulario.edad + '</td><td>' + datosFormulario.pais + '</td><td>' + datosFormulario.email + '</td><td>' + datosFormulario.texto + '</td><td>' + datosFormulario.fechaEnvio + '</td><td><button class="btn btn-sm btn-info editar">Editar</button> <button class="btn btn-sm btn-danger eliminar">Eliminar</button></td></tr>';
+        tabla.append(fila);
+
+        // Limpiar formulario
+        $('#formulario')[0].reset();
+      });
+
+      // Evento para eliminar fila
+      $('#tablaDatos').on('click', '.eliminar', function() {
+        $(this).closest('tr').remove();
+      });
+
+      // Evento para editar fila
+      $('#tablaDatos').on('click', '.editar', function() {
+        var fila = $(this).closest('tr');
+        var nombre = fila.find('td:eq(0)').text();
+        var edad = fila.find('td:eq(1)').text();
+        var pais = fila.find('td:eq(2)').text();
+        var email = fila.find('td:eq(3)').text();
+        var texto = fila.find('td:eq(4)').text();
+
+        // Rellenar el formulario con los datos de la fila seleccionada
+        $('#nombre').val(nombre);
+        $('#edad').val(edad);
+        $('#pais').val(pais);
+        $('#email').val(email);
+        $('#texto').val(texto);
+
+        // Eliminar la fila seleccionada
+        fila.remove();
+      });
+    });
+
+</script>
